@@ -8,4 +8,4 @@ sudo apt upgrade
 sudo update-grub
 ```
 
-Günceleme: 10/01/2024
+Günceleme: 30/03/2024
