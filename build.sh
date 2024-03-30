@@ -1,4 +1,7 @@
 #!/usr/bin/sh
+apt update
+apt install curl debootstrap xorriso squashfs-tools mtools grub-pc-bin grub-efi -y
+
 set -ex
 mkdir chroot || true
 export DEBIAN_FRONTEND=noninteractive
