@@ -1,13 +1,5 @@
 Pardus 23 Backports Cinnamon Unofficial
 
-ISO yapmak için:
-
-```
-sudo apt update
-sudo apt install curl mtools squashfs-tools grub-pc-bin grub-efi xorriso debootstrap -y
-sudo bash build.sh
-```
-
 Kurulum sonrası:
 
 ```
