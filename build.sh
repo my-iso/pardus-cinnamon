@@ -33,21 +33,16 @@ chmod +x chroot/usr/sbin/policy-rc.d
 chroot chroot apt-get install -t yirmiuc-backports linux-image-amd64 -y
 
 #Firmwares
-chroot chroot apt-get install -y firmware-amd-graphics firmware-atheros \
-    firmware-b43-installer firmware-b43legacy-installer \
-    firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-linux-free \
-    firmware-cavium firmware-intel-sound \
-    firmware-iwlwifi  firmware-libertas firmware-linux \
-    firmware-linux-nonfree firmware-misc-nonfree firmware-myricom \
-    firmware-netxen firmware-qlogic firmware-realtek firmware-samsung \
-    firmware-siano firmware-ti-connectivity firmware-zd1211
+chroot chroot apt-get install -y firmware-linux firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-realtek bluez-firmware \
+firmware-intel-sound firmware-iwlwifi firmware-atheros firmware-b43-installer firmware-b43legacy-installer firmware-bnx2 firmware-bnx2x firmware-brcm80211 \
+firmware-cavium firmware-libertas firmware-myricom firmware-netxen firmware-qlogic firmware-samsung firmware-siano firmware-ti-connectivity firmware-zd1211
     
 #Init and Window System
 chroot chroot apt-get install xorg xinit lightdm -y
 
 #Desktop apps
-chroot chroot apt-get install gedit eog gnome-screenshot gnome-clocks gnome-terminal gnome-system-monitor gnome-calculator gnome-weather gnome-calendar network-manager-gnome -y
-chroot chroot apt-get install cinnamon synaptic p7zip-full ffmpeg gvfs-backends wget xdg-user-dirs file-roller papirus-icon-theme orchis-gtk-theme -y
+chroot chroot apt-get install -y gedit eog gnome-screenshot gnome-clocks gnome-terminal gnome-system-monitor gnome-calculator gnome-weather gnome-calendar network-manager-gnome \
+cinnamon inxi synaptic p7zip-full ffmpeg gvfs-backends wget xdg-user-dirs file-roller papirus-icon-theme orchis-gtk-theme
 
 #Pardus apps
 chroot chroot apt-get install pardus-lightdm-greeter pardus-installer pardus-software pardus-package-installer pardus-night-light pardus-about pardus-update pardus-locales pardus-ayyildiz-grub-theme -y
