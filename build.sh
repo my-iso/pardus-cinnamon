@@ -19,36 +19,36 @@ cat > chroot/etc/apt/sources.list.d/yirmiuc-backports.list << EOF
 deb http://depo.pardus.org.tr/backports yirmiuc-backports main contrib non-free non-free-firmware
 EOF
 
-chroot chroot apt-get update --allow-insecure-repositories
-chroot chroot apt-get install pardus-archive-keyring --allow-unauthenticated -y
+chroot chroot apt update --allow-insecure-repositories
+chroot chroot apt install pardus-archive-keyring --allow-unauthenticated -y
 
-chroot chroot apt-get update -y
+chroot chroot apt update -y
 
-chroot chroot apt-get install gnupg grub-pc-bin grub-efi-ia32-bin grub-efi live-config live-boot plymouth plymouth-themes -y
+chroot chroot apt install gnupg grub-pc-bin grub-efi-ia32-bin grub-efi live-config live-boot plymouth plymouth-themes -y
 
 echo -e "#!/bin/sh\nexit 101" > chroot/usr/sbin/policy-rc.d
 chmod +x chroot/usr/sbin/policy-rc.d
 
 #Kernel
-chroot chroot apt-get install -t yirmiuc-backports linux-image-amd64 -y
+chroot chroot apt install -t yirmiuc-backports linux-image-amd64 -y
 
 #Firmwares
-chroot chroot apt-get install -y firmware-linux firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-realtek bluez-firmware \
+chroot chroot apt install -y firmware-linux firmware-linux-free firmware-linux-nonfree firmware-misc-nonfree firmware-amd-graphics firmware-realtek bluez-firmware \
 firmware-intel-sound firmware-iwlwifi firmware-atheros firmware-b43-installer firmware-b43legacy-installer firmware-bnx2 firmware-bnx2x firmware-brcm80211 \
 firmware-cavium firmware-libertas firmware-myricom firmware-netxen firmware-qlogic firmware-samsung firmware-siano firmware-ti-connectivity firmware-zd1211
     
 #Init and Window System
-chroot chroot apt-get install xorg xinit lightdm -y
+chroot chroot apt install xorg xinit lightdm -y
 
 #Desktop apps
-chroot chroot apt-get install -y gedit eog gnome-screenshot gnome-clocks gnome-terminal gnome-system-monitor gnome-calculator gnome-weather gnome-calendar network-manager-gnome \
+chroot chroot apt install -y gedit eog gnome-screenshot gnome-clocks gnome-terminal gnome-system-monitor gnome-calculator gnome-weather gnome-calendar network-manager-gnome \
 cinnamon inxi synaptic p7zip-full ffmpeg gvfs-backends wget xdg-user-dirs file-roller papirus-icon-theme orchis-gtk-theme
 
 #Pardus apps
-chroot chroot apt-get install pardus-lightdm-greeter pardus-installer pardus-software pardus-package-installer pardus-night-light pardus-about pardus-update pardus-locales pardus-ayyildiz-grub-theme -y
+chroot chroot apt install pardus-lightdm-greeter pardus-installer pardus-software pardus-package-installer pardus-night-light pardus-about pardus-update pardus-locales pardus-ayyildiz-grub-theme -y
 
 #Grub update
-chroot chroot apt-get upgrade -y
+chroot chroot apt upgrade -y
 chroot chroot update-grub
 
 #### Remove bloat files after dpkg invoke (optional)
@@ -58,7 +58,7 @@ DPkg::Post-Invoke {"rm -rf /usr/share/help || true";};
 DPkg::Post-Invoke {"rm -rf /usr/share/doc || true";};
 EOF
 
-chroot chroot apt-get clean
+chroot chroot apt clean
 rm -f chroot/root/.bash_history
 rm -rf chroot/var/lib/apt/lists/*
 find chroot/var/log/ -type f | xargs rm -f
