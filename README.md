@@ -1,4 +1,4 @@
-Pardus 23 Backports Cinnamon Unofficial
+Pardus23 Backports Cinnamon Unofficial
 
 Kurulum sonrası:
 
